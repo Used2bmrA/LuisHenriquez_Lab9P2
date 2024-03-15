@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 class HiloFecha implements Runnable{
     private JLabel fecha;
     
-    public HiloHora(JLabel fecha) {
+    public HiloFecha(JLabel fecha) {
         this.fecha = fecha;
     }        
 
