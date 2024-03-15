@@ -1,7 +1,9 @@
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -25,17 +27,17 @@ public class Lab9GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        pn_panelBlanco = new javax.swing.JPanel();
         ulb_diceFechaDeHoy = new javax.swing.JLabel();
         lb_fechaActual = new javax.swing.JLabel();
         ulb_diceHoraActual = new javax.swing.JLabel();
         lb_horaActual = new javax.swing.JLabel();
         ulb_diceBienvenido = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        pn_panelLila = new javax.swing.JPanel();
         bt_subirArchivo = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        ulb_diceSubiendoArchivo = new javax.swing.JLabel();
+        bt_guardar = new javax.swing.JButton();
+        ScrollPane_AquiVaLaTextArea = new javax.swing.JScrollPane();
         ta_areaTrabajo = new javax.swing.JTextArea();
         ulb_diceArchivo = new javax.swing.JLabel();
         pb_barra = new javax.swing.JProgressBar();
@@ -43,30 +45,30 @@ public class Lab9GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pn_panelBlanco.setBackground(new java.awt.Color(255, 255, 255));
+        pn_panelBlanco.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ulb_diceFechaDeHoy.setForeground(new java.awt.Color(0, 0, 0));
         ulb_diceFechaDeHoy.setText("Fecha de hoy:");
-        jPanel1.add(ulb_diceFechaDeHoy, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
+        pn_panelBlanco.add(ulb_diceFechaDeHoy, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
         lb_fechaActual.setForeground(new java.awt.Color(0, 0, 0));
         lb_fechaActual.setText("3/15/2020");
-        jPanel1.add(lb_fechaActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 70, -1));
+        pn_panelBlanco.add(lb_fechaActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 70, -1));
 
         ulb_diceHoraActual.setForeground(new java.awt.Color(0, 0, 0));
         ulb_diceHoraActual.setText("Hora actual:");
-        jPanel1.add(ulb_diceHoraActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 70, -1));
+        pn_panelBlanco.add(ulb_diceHoraActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 70, -1));
 
         lb_horaActual.setForeground(new java.awt.Color(0, 0, 0));
         lb_horaActual.setText("1:44:37");
-        jPanel1.add(lb_horaActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 60, -1));
+        pn_panelBlanco.add(lb_horaActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 60, -1));
 
         ulb_diceBienvenido.setForeground(new java.awt.Color(0, 0, 0));
         ulb_diceBienvenido.setText("Bienvenido");
-        jPanel1.add(ulb_diceBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
+        pn_panelBlanco.add(ulb_diceBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        pn_panelLila.setBackground(new java.awt.Color(204, 204, 255));
 
         bt_subirArchivo.setText("Subir archivo");
         bt_subirArchivo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -75,14 +77,19 @@ public class Lab9GUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Subiendo archivo:");
+        ulb_diceSubiendoArchivo.setForeground(new java.awt.Color(0, 0, 0));
+        ulb_diceSubiendoArchivo.setText("Subiendo archivo:");
 
-        jButton1.setText("Guardar");
+        bt_guardar.setText("Guardar");
+        bt_guardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_guardarMouseClicked(evt);
+            }
+        });
 
         ta_areaTrabajo.setColumns(20);
         ta_areaTrabajo.setRows(5);
-        jScrollPane1.setViewportView(ta_areaTrabajo);
+        ScrollPane_AquiVaLaTextArea.setViewportView(ta_areaTrabajo);
 
         ulb_diceArchivo.setForeground(new java.awt.Color(0, 0, 0));
         ulb_diceArchivo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -97,64 +104,64 @@ public class Lab9GUI extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pn_panelLilaLayout = new javax.swing.GroupLayout(pn_panelLila);
+        pn_panelLila.setLayout(pn_panelLilaLayout);
+        pn_panelLilaLayout.setHorizontalGroup(
+            pn_panelLilaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_panelLilaLayout.createSequentialGroup()
+                .addGroup(pn_panelLilaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pn_panelLilaLayout.createSequentialGroup()
                         .addGap(251, 251, 251)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(bt_guardar))
+                    .addGroup(pn_panelLilaLayout.createSequentialGroup()
                         .addGap(60, 60, 60)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pn_panelLilaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ulb_diceSubiendoArchivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pb_barra, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(pn_panelLilaLayout.createSequentialGroup()
                                 .addComponent(bt_subirArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(bt_sorpresa)
                                 .addGap(71, 71, 71))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(pn_panelLilaLayout.createSequentialGroup()
                         .addGap(100, 100, 100)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(ScrollPane_AquiVaLaTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pn_panelLilaLayout.createSequentialGroup()
                         .addGap(230, 230, 230)
                         .addComponent(ulb_diceArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        pn_panelLilaLayout.setVerticalGroup(
+            pn_panelLilaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_panelLilaLayout.createSequentialGroup()
                 .addGap(64, 64, 64)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pn_panelLilaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bt_subirArchivo)
                     .addComponent(bt_sorpresa))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6)
+                .addComponent(ulb_diceSubiendoArchivo)
                 .addGap(18, 18, 18)
                 .addComponent(pb_barra, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addComponent(ulb_diceArchivo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ScrollPane_AquiVaLaTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(bt_guardar)
                 .addGap(49, 49, 49))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 640, 570));
+        pn_panelBlanco.add(pn_panelLila, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 640, 570));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
+            .addComponent(pn_panelBlanco, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 569, Short.MAX_VALUE)
+            .addComponent(pn_panelBlanco, javax.swing.GroupLayout.PREFERRED_SIZE, 569, Short.MAX_VALUE)
         );
 
         pack();
@@ -167,10 +174,11 @@ public class Lab9GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_sorpresaMouseClicked
 
     private void bt_subirArchivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_subirArchivoMouseClicked
-        HiloBarra barra = new HiloBarra(pb_barra);
         File file = null;
         FileReader fr = null;
         BufferedReader br = null;
+        String texto = "";
+
 
         try {
             JFileChooser chooser = new JFileChooser("../");
@@ -179,15 +187,15 @@ public class Lab9GUI extends javax.swing.JFrame {
             int seleccion = chooser.showOpenDialog(this);
             if (seleccion == JFileChooser.APPROVE_OPTION) {
                 file = chooser.getSelectedFile();
+                archivoActual = file;
                 fr = new FileReader(file);
                 br = new BufferedReader(fr);
                 String linea;
                 ta_areaTrabajo.setText("");
-                barra.start();
                 
                 while ((linea = br.readLine()) != null) {
-                    ta_areaTrabajo.append(linea);
-                    ta_areaTrabajo.append("\n");
+                    texto += linea;
+                    texto += "\n";
                 }
             }
         } catch (Exception e) {
@@ -198,7 +206,30 @@ public class Lab9GUI extends javax.swing.JFrame {
             fr.close();
         } catch (IOException ex) {
         }
+        HiloBarra barra = new HiloBarra(pb_barra, texto, ta_areaTrabajo);
+        barra.start();
     }//GEN-LAST:event_bt_subirArchivoMouseClicked
+
+    private void bt_guardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_guardarMouseClicked
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        try {
+            File fichero = null;
+            fw = new FileWriter(archivoActual);
+            bw = new BufferedWriter(fw);
+            bw.write(ta_areaTrabajo.getText());
+            bw.flush();
+            JOptionPane.showMessageDialog(this,"Archivo guardado exitosamente.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            bw.close();
+            fw.close();
+        } catch (IOException ex) {
+        }
+
+    }//GEN-LAST:event_bt_guardarMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -233,24 +264,24 @@ public class Lab9GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane ScrollPane_AquiVaLaTextArea;
+    private javax.swing.JButton bt_guardar;
     private javax.swing.JButton bt_sorpresa;
     private javax.swing.JButton bt_subirArchivo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_fechaActual;
     private javax.swing.JLabel lb_horaActual;
     private javax.swing.JProgressBar pb_barra;
+    private javax.swing.JPanel pn_panelBlanco;
+    private javax.swing.JPanel pn_panelLila;
     private javax.swing.JTextArea ta_areaTrabajo;
     private javax.swing.JLabel ulb_diceArchivo;
     private javax.swing.JLabel ulb_diceBienvenido;
     private javax.swing.JLabel ulb_diceFechaDeHoy;
     private javax.swing.JLabel ulb_diceHoraActual;
+    private javax.swing.JLabel ulb_diceSubiendoArchivo;
     // End of variables declaration//GEN-END:variables
 
     HiloHora hora;
     HiloFecha fecha;
-    HiloBarra barra;
+    File archivoActual;
 }
